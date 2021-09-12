@@ -1,0 +1,117 @@
+<html><head>
+    <style>
+				p{
+				line-height:90%;
+}
+</style>
+    <meta charset="UTF-8">
+    <title>幾A幾B</title>
+    <style>
+        @import url(https://fonts.googleapis.com/earlyaccess/cwtexfangsong.css);
+            body
+            {
+            background-color:yellow;
+            color:black;
+            font-family:"cwTeXFangSong", serif;
+            font-size:18px;
+            }
+            a:link{color:#fff;}      /* 未訪問連結*/
+            a:visited {color:#fff;}  /* 已訪問連結 */
+            a:hover {color:#000080;}  /* 滑鼠移動到連結上 */
+            a:active {color:#000080;} 
+            div
+            {
+                width:100px;
+                height:40px;
+                background-color:red;
+                color:white;
+                font-size:20px;
+            }
+    </style>
+</head>
+<body>
+    <tr><td style="background-color:#FFFFFF;height:200px;width:400px;">
+        <h3>hi~生日快樂</h3><p>j</p><p>j</p><p>j</p><p>j</p><p>j</p><p>j</p><p>j</p></td></tr>
+
+<center>
+        
+    
+    <div id="k" onclick="start()">重新開始</div><br>
+    <br>
+    輸入一組四位數字(1~9數字不重複):
+    <br>
+    <input id="num" size="4" type="number"><br><br>
+    <div id="submit" onclick="ok()" style="color:white">送出</div>
+    <a href="index.htm"><br><br>
+
+</a></center>
+
+<script>
+    alert("丁丁生日快樂!!!")
+    var v=new Array(4);
+    var an=new Array(4);
+    var a;
+    var b;
+    function start()
+    {
+        for (let i=0;i<4;i++)
+        {
+            v[i]=((Math.ceil(Math.random()*9)));
+            for (let k=0;k<4;k++)
+            {
+                if (v[i]==v[k])
+                {
+                    if (i!=k)
+                    {
+                        v[i]=((Math.ceil(Math.random()*9)));
+                        i=0;
+                    }
+                }
+            }
+        
+        }
+        alert("成功抽取");//+v[0]+" "+v[1]+" "+v[2]+" "+v[3]
+    }
+    function ok()
+    {
+        var ans;
+        text="";
+        ans=document.getElementById("num").value;
+        for (let i=3;i>=0;i--)
+        {
+            an[i]=ans%10;
+            ans=Math.floor(ans/10);
+            //alert(an[i]);
+        }
+        a=0;
+        b=0;
+        for (let i=0;i<4;i++)
+        {
+            for (let k=0;k<4;k++)
+            {
+                if (v[k]==an[i])
+                {
+                    b=b+1;
+                    //alert("b"+i);
+                }
+            }
+            if (v[i]==an[i])
+            {
+                a=a+1;
+                //alert("a"+i);
+            }
+        }
+        if (a==4)
+        {
+            alert("猜中了!(請再次抽取亂數)");
+        }
+        else
+        {
+            alert(a+"A"+" "+(b-a)+"B");
+        }
+        
+        
+    }
+</script>
+
+</body></html>
